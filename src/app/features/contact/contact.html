@@ -1,0 +1,40 @@
+<div class="contact-container">
+  <!-- Left Side - Form -->
+  <div class="contact-form">
+    <h2>Contact</h2>
+    <p>Send us a message, and our team will respond within 24 hours.</p>
+
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+      <div>
+        <input type="text" [(ngModel)]="name" name="name" placeholder="Your Name" required />
+        <div *ngIf="contactForm.submitted && !name" class="error">Please fill out this field</div>
+      </div>
+
+      <div>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email Address" required />
+        <div *ngIf="contactForm.submitted && !email" class="error">Please fill out this field</div>
+      </div>
+
+      <div>
+        <textarea [(ngModel)]="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        <div *ngIf="contactForm.submitted && !message" class="error">Please fill out this field</div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Right Side - Info -->
+  <div class="contact-info">
+    <h3>Our Shop Location:</h3>
+    <p>123 Market Street, Downtown, Cityville, CA 90210</p>
+
+    <h3>Working Hours:</h3>
+    <p>Monday - Friday: 9:00 AM – 8:00 PM<br>Saturday – Sunday: 10:00 AM – 6:00 PM</p>
+
+    <h3>Contact Number:</h3>
+    <p>(123) 456-7890</p>
+  </div>
+</div>
+
+

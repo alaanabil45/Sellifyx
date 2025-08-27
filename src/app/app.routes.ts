@@ -14,5 +14,9 @@ export const routes: Routes = [
   {path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
   { path: 'support', component: Support },
   { path: 'contact', component: Contact },
+  { path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
+  { path: 'blog/:id', loadComponent: () => import('./features/blog-details/blog-details').then(m => m.BlogDetails) },
+  { path: 'product/:id',loadComponent: () => import('./features/product/product').then(m => m.ProductComponent)},
+  { path: 'product/:id', loadComponent: () => import('./features/product/product').then(m => m.ProductComponent) },
   { path: '**', redirectTo: '' },
 ];

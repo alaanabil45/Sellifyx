@@ -3,7 +3,7 @@
    <section>
   <header class="nav-root" [class.scrolled]="scrolled">
     <nav class="nav container">
-      <a routerLink="/" class="brand">
+      <a routerLink="/home" class="brand">
         <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
       </a>
       <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
@@ -55,20 +55,13 @@
                 </div>   
                 
                 <div class="wishlist">
-            <a routerLink="/wishlist">
-                <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
-            </a>
-        </div>
-
+                    <a routerLink="/wishlist">
+                        <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
+                    </a>
+                </div>
             </div>
-            
-     
-    </div>
+        </div>
     </nav>
-        
-
-       
-   
   </header>
 
   <div class="color"></div>
@@ -79,7 +72,7 @@
       <p>Explore cutting-edge gadgets and stylish accessories designed to enhance your daily life with innovation, convenience, and a touch of modern elegance.</p>
       <div class="buttons">
         <button class="button1" [routerLink]="['/product', 'all']">Explore Products</button>
-        <button class="button2">About</button>
+        <button class="button2" routerLink="/about">About</button>
       </div>
     </div>
 
@@ -127,14 +120,14 @@
         <div class="cont">
             <h2>The All-New Spatial Experience</h2>
             <p>Spark your imagination and redefine reality with the revolutionary spatial experience</p>
-            <a href="#">Explore Products</a>
+            <a [routerLink]="['/product', 'all']">Explore Products</a>
         </div>
     </section>
 
     <section class="best-seller">
         <div class="top">
             <h2>Best Seller</h2>
-            <a routerLink="/products">View Productrs →</a>
+            <a [routerLink]="['/product', 'all']">View Productrs →</a>
         </div>
         <div class="products">
             <div *ngFor="let product of products" class="product-card">
@@ -208,7 +201,7 @@
     <section class="articles">
         <div class="head">
             <h2>Latest Articles and News</h2>
-            <a href="">View All Articles →</a>
+            <a routerLink="/blogs">View All Articles →</a>
         </div>
 
         <div class="last">

@@ -126,7 +126,10 @@ a{
     border-bottom:2px solid #111;
 }
 
-
+.nav-links a:active{
+    font-weight: 500;
+    border-bottom:2px solid #111;
+}
 
 .search-box {
   position: relative;
@@ -204,7 +207,7 @@ a{
 
 .user-dropdown {
   position: absolute;
-  top: 40px; /* تحريكها تحت الايقونة */
+  top: 40px; 
   right: 0;
   background: white;
   border: 1px solid #ddd;
@@ -624,7 +627,7 @@ a{
   cursor: pointer;
 }
 
-.image-container img {
+.image-container .img {
   width: 100%;
   height: auto;
   display: block;

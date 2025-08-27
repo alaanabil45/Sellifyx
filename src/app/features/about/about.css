@@ -1,0 +1,365 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+h1{
+  color: #111;
+  font-size: 54px;
+  line-height: 59spx;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+h2{
+  color: #111;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 46px;
+  font-family: 'Inter', sans-serif;
+  padding: 20px 0;
+}
+
+h4{
+  color: #111;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 29px;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 15px;
+}
+
+h3{
+  color: #111;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 34px;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 25px;
+}
+
+p{
+  color: rgb(91, 91, 91);
+  list-style: 26px;
+  font-weight: 400;
+  font-size: 17px;
+  font-family: 'Outfit', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.nav-root {
+    top:0; 
+    z-index:50; 
+    background: transparent; 
+    transition: box-shadow .2s;
+}
+
+.nav-root.scrolled { box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+
+.container { 
+    margin:0 auto; 
+    padding:20px 50px; 
+}
+
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+}
+.nav { 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    height:64px; 
+}
+
+.brand { 
+    font-weight:700; 
+    font-size:20px; 
+    text-decoration:none; 
+    color:#111; 
+}
+
+.brand img {
+  width: 120px;
+  height: auto;
+}
+
+.cart-icon{
+    background-color: #f3f6fb;
+    padding: 15px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cart-icon span{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hamburger { 
+    display:none; 
+    background:none; 
+    border:none; 
+    font-size:22px; 
+}
+
+.nav-links { 
+    display:flex; 
+    gap:5px; 
+    list-style:none; 
+    margin:0; 
+    padding:0; 
+}
+
+.nav-links a { 
+    text-decoration:none; 
+    color:rgb(91, 91, 91); 
+    margin:8px 8px;  
+    font-family:'Outfit', sans-serif;
+    font-weight:400;
+    size: 26px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.nav-links a:hover{
+    border-bottom:2px solid #111;
+}
+
+.nav-links a:active{
+    font-weight: 500;
+    border-bottom:2px solid #111;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+.search-box input {
+  width: 100%;
+  padding: 17px 40px 17px 35px; 
+  border: 1px solid #b6b6b6;
+  border-radius: 50px;
+  background-color: #f3f6fb;
+  font-size: 14px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+  
+}
+
+.search-box .search-btn {
+  position: absolute;
+  right: 0px;
+  padding: 17px 17px;
+  border: 1px solid #b6b6b6;
+  background: #ffffff;
+  color: rgb(91, 91, 91);
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.search-box .search-btn:hover{
+  background-color: #111;
+  color: white;
+}
+
+@media (max-width:768px) {
+  .hamburger { display:block; }
+  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
+  .nav-links.open { display:flex; }
+  div{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.header-user {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+
+.header-user svg{
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.header-user svg:hover{
+  background-color: #f3f6fb;
+  border-radius: 50px;
+}
+
+.header-user svg:focus{
+  background-color: #f3f6fb;
+  border-radius: 50px;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 40px; 
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.user-dropdown p {
+  margin: 0;
+  font-weight: 500;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-dropdown button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  background: #2e2e31;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-dropdown button:hover {
+  opacity: 0.9;
+}
+
+.wishlist img{
+  width: 30px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.wishlist img:hover{
+  background-color: #f3f6fb;
+  border-radius: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.newsletter-section {
+  border: 1px solid #dcdcdc;
+  background: #f8f8f8;
+  border-radius: 30px;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin: 70px ;
+  max-width: 88%;
+      
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+}
+
+.newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 50px;
+      
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 21px 30px;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      width: 280px;
+      outline: none;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .newsletter-form button {
+      background: black;
+      color: white;
+      border: 1px solid #111;
+      border-radius: 50px;
+      padding: 21px 30px;
+      cursor: pointer;
+      font-size: 17px;
+      line-height: 26px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background: white;
+      color: #111;
+    }
+
+    .offer-box {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(to bottom , white, #f8f8f8 );
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 500;
+      color: rgb(166, 166, 168);
+      opacity: 0.9;
+      
+    }
+
+    .offer-left {
+      top: 60%;
+      left: 150px;
+      transform: rotate(-15deg) translateY(-50%);
+    }
+
+    .offer-right {
+      top: 60%;
+      right: 150px;
+      transform: rotate(15deg) translateY(-50%);
+    }

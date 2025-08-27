@@ -1,17 +1,32 @@
 
 <body>
     <div class="auth-container">
-    <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <input [(ngModel)]="email" name="email" placeholder="Email" required />
-    <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-  <p>
-    Don't have an account?
-    <a class="link" routerLink="/auth/register">Sign Up</a>
-  </p>
-  <p class="m">{{ message }}</p>
-    </div>
+  <div class="left-side">
+    <img src="https://cdn.prod.website-files.com/67f0f4a4be1df2493a57a2d9/67f60e3efdf9d9be455f60f2_Home%20Gedget.webp" alt="Login Illustration" />
+  </div>
 
-</body>
+  <div class="right-side">
+    <h2>Login</h2>
+
+    <form (ngSubmit)="login()">
+      <input [(ngModel)]="email" name="email" placeholder="Email" required />
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <button class="google-btn" (click)="loginWithGoogle()">
+      <img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0idy1jb21tZXJjZS1jb21tZXJjZXF1aWNrY2hlY2tvdXRnb29nbGVpY29uIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PGRlZnM+PHBvbHlnb24gaWQ9Imdvb2dsZS1tYXJrLWEiIHBvaW50cz0iMCAuMzI5IDMuNDk0IC4zMjkgMy40OTQgNy42NDkgMCA3LjY0OSI+PC9wb2x5Z29uPjxwb2x5Z29uIGlkPSJnb29nbGUtbWFyay1jIiBwb2ludHM9Ii44OTQgMCAxMy4xNjkgMCAxMy4xNjkgNi40NDMgLjg5NCA2LjQ0MyI+PC9wb2x5Z29uPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMC41OTY3LDEyLjA0NjkgTDEwLjU5NjcsMTQuMDY0OSBMMTMuMTE2NywxNC4wNjQ5IEMxNC42MDQ3LDEyLjY3NTkgMTUuNDU3NywxMC42MjA5IDE1LjQ1NzcsOC4xNzc5IEMxNS40NTc3LDcuNjMzOSAxNS40MTM3LDcuMDg4OSAxNS4zMjU3LDYuNTU1OSBMNy44ODg3LDYuNTU1OSBMNy44ODg3LDkuNjMyOSBMMTIuMTUwNyw5LjYzMjkgQzExLjk3NjcsMTAuNjExOSAxMS40MTQ3LDExLjQ4OTkgMTAuNTk2NywxMi4wNDY5Ij48L3BhdGg+PHBhdGggZmlsbD0iIzM0QTg1MyIgZD0iTTcuODg4NywxNiBDMTAuMDEzNywxNiAxMS44MTA3LDE1LjI4OSAxMy4xMTQ3LDE0LjA2NyBDMTMuMTE0NywxNC4wNjYgMTMuMTE1NywxNC4wNjUgMTMuMTE2NywxNC4wNjQgTDEwLjU5NjcsMTIuMDQ3IEMxMC41ODc3LDEyLjA1MyAxMC41ODA3LDEyLjA2MSAxMC41NzI3LDEyLjA2NyBDOS44NjA3LDEyLjU1NiA4Ljk1MDcsMTIuODMzIDcuODg4NywxMi44MzMgQzUuODU3NywxMi44MzMgNC4xMzg3LDExLjQ1NyAzLjQ5MzcsOS42MDUgTDAuODc0Nyw5LjYwNSBMMC44NzQ3LDExLjY0OCBDMi4yMTk3LDE0LjMxOSA0LjkyODcsMTYgNy44ODg3LDE2Ij48L3BhdGg+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA0KSI+PG1hc2sgaWQ9Imdvb2dsZS1tYXJrLWIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2dvb2dsZS1tYXJrLWEiPjwvdXNlPjwvbWFzaz48cGF0aCBmaWxsPSIjRkJCQzA0IiBkPSJNMy40NjM5LDUuNTMzNyBDMy4xMzY5LDQuNTQ3NyAzLjEzNTksMy40NzI3IDMuNDYwOSwyLjQ3NTcgTDMuNDYzOSwyLjQ3NzcgQzMuNDY3OSwyLjQ2NTcgMy40NzQ5LDIuNDU0NyAzLjQ3ODksMi40NDI3IEwzLjQ5MzksMC4zMjg3IEwwLjg5MzksMC4zMjg3IEMwLjg3OTksMC4zNTc3IDAuODU5OSwwLjM4MjcgMC44NDU5LDAuNDExNyBDLTAuMjgyMSwyLjY2NjcgLTAuMjgyMSw1LjMzMzcgMC44NDU5LDcuNTg4NyBMMC44NDU5LDcuNTk5NyBDMC44NTQ5LDcuNjE2NyAwLjg2NTksNy42MzE3IDAuODc0OSw3LjY0ODcgTDMuNDkzOSw1LjYwNTcgQzMuNDg0OSw1LjU4MDcgMy40NzI5LDUuNTU4NyAzLjQ2MzksNS41MzM3IiBtYXNrPSJ1cmwoI2dvb2dsZS1tYXJrLWIpIj48L3BhdGg+PC9nPjxtYXNrIGlkPSJnb29nbGUtbWFyay1kIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNnb29nbGUtbWFyay1jIj48L3VzZT48L21hc2s+PHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTAuODk0LDQuMzI5MSBMMy40NzgsNi40NDMxIEM0LjExMyw0LjU2MTEgNS44NDMsMy4xNjcxIDcuODg5LDMuMTY3MSBDOS4wMTgsMy4xNDUxIDEwLjEwMiwzLjU3ODEgMTAuOTEyLDQuMzY3MSBMMTMuMTY5LDIuMDc4MSBDMTEuNzMzLDAuNzIzMSA5Ljg1LC0wLjAyMTkgNy44ODksMC4wMDAxIEM0Ljk0MSwwLjAwMDEgMi4yNDUsMS42NzkxIDAuODk0LDQuMzI5MSIgbWFzaz0idXJsKCNnb29nbGUtbWFyay1kKSI+PC9wYXRoPjwvZz48L3N2Zz4=" alt="Google" /> Login with Google
+    </button>
+
+    <p>
+      Don't have an account?
+      <a class="link" routerLink="/auth/register">Sign Up</a>
+    </p>
+    
+  <div *ngIf="message" class="toast" [ngClass]="toastType">
+    {{ message }}
+  </div>
+
+</div>
+
+

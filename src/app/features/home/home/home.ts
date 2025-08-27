@@ -1,48 +1,78 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
 import { FirestoreService } from '../../auth/firestore.service';
-import { RouterModule } from '@angular/router';
-import { collectionData } from '@angular/fire/firestore';
+import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
 export class Home implements OnInit {
-products: any[] = [];
+  products: any[] = [];
   loading = true;
-  open: any;
-  scrolled: any;
-  router: any;
-  productService: any;
 
-constructor(private firestoreService: FirestoreService) {}
+  // User Dropdown
+  showDropdown = false;
+  user: User | null = null;
+open: any;
+scrolled: any;
 
-  async ngOnInit() {
+  constructor(
+    private firestoreService: FirestoreService,
+    private router: Router,
+    private auth: Auth
+  ) {}
+
+  ngOnInit() {
     this.loadGearProducts();
-   const productId = this.router.snapshot.paramMap.get('id');
-this.products = await this.productService.getProductById(productId!);
 
+    onAuthStateChanged(this.auth, (user) => {
+      this.user = user;
+    });
   }
 
   loadGearProducts() {
     this.loading = true;
-    this.firestoreService.getGearProducts().subscribe((data) => {
-      console.log('🔥 Gear Products:', data);
-      this.products = data;
-      this.loading = false;
+    this.firestoreService.getGearProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error loading products:', err);
+        this.loading = false;
+      }
     });
   }
 
   goToProduct(id: string) {
-  
-  this.router.navigate(['/product', id]);
-}
+    this.router.navigate(['/product', id]);
+  }
 
+  // Dropdown
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
 
+  logout() {
+    if (this.user) {
+      signOut(this.auth).then(() => {
+        this.router.navigate(['/auth/login']);
+        this.showDropdown = false;
+      });
+    }
+  }
 
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+    this.showDropdown = false;
+  }
+
+  get username() {
+    return this.user?.displayName || this.user?.email || 'User';
+  }
 }

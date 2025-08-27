@@ -9,28 +9,53 @@ body {
   align-items: center;
 }
 
-/* Container */
+/* Main container: left (image) + right (form) */
 .auth-container {
+  display: flex;
   width: 100%;
-  max-width: 380px;
-  padding: 32px;
+  max-width: 900px;
+  min-height: 550px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Left side (Image) */
+.left-side {
+  flex: 1;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.left-side img {
+  width: 98%;
+}
+
+/* Right side (Form) */
+.right-side {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
 /* Heading */
-.auth-container h2 {
-  font-size: 26px;
+.right-side h2 {
+  font-size: 28px;
   font-weight: 700;
   color: #374151;
   margin-bottom: 20px;
 }
 
 /* Inputs */
-.auth-container input {
+.right-side input {
   width: 90%;
   padding: 14px 16px;
   margin: 10px 0;
@@ -41,14 +66,14 @@ body {
   transition: all 0.3s ease;
 }
 
-.auth-container input:focus {
+.right-side input:focus {
   outline: none;
   border-color: #2e2e31;
   box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
 }
 
 /* Button */
-.auth-container button {
+.right-side button {
   width: 100%;
   padding: 14px;
   margin-top: 14px;
@@ -62,35 +87,85 @@ body {
   transition: transform 0.1s ease, opacity 0.3s ease;
 }
 
-.auth-container button:hover {
+.right-side button:hover {
   opacity: 0.9;
 }
 
-.auth-container button:active {
+.right-side button:active {
   transform: translateY(2px);
 }
 
-/* Links */
-.auth-container p {
+/* Google button (مخصوص) */
+.google-btn {
+  margin-top: 14px;
+  background: white;
+  border: 1px solid #ddd;
+  color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.google-btn img {
+  width: 20px;
+}
+
+/* Links + message */
+.right-side p {
   margin-top: 18px;
   font-size: 14px;
   color: #6b7280;
 }
 
-.auth-container a {
+.right-side a {
   color: #2e2e31;
   font-weight: 600;
   text-decoration: none;
-  cursor: pointer;   
+  cursor: pointer;
 }
 
-.auth-container a:hover {
+.right-side a:hover {
   text-decoration: underline;
 }
 
-/* Message */
-.auth-container .m {
+.right-side .m {
   margin-top: 12px;
   color: #478895;
   font-weight: 500;
 }
+
+.toast {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease;
+  text-align: center;
+}
+
+.toast.success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.toast.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

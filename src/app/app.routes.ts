@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { Blogs } from './features/blogs/blogs';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -8,5 +9,6 @@ export const routes: Routes = [
   { path: 'about', loadComponent: () => import('./features/about/about').then(m => m.About) },
   { path: 'support', loadComponent: () => import('./features/support/support').then(m => m.Support)},
   { path: 'contact', loadComponent: () => import('./features/contact/contact').then(m => m.Contact)},
+  {path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
   { path: '**', redirectTo: '' },
 ];

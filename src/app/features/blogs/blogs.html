@@ -1,7 +1,7 @@
 <body>
       <header class="nav-root" [class.scrolled]="scrolled">
     <nav class="nav container">
-      <a routerLink="/" class="brand">
+      <a routerLink="/home" class="brand">
         <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
       </a>
       <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
@@ -74,9 +74,9 @@
 
   <div class="articles">
     <div class="article" *ngFor="let blog of blogs">
-      <a routerLink="/blog"><img [src]="blog.image" alt="{{ blog.date }}" /></a>
+      <a [routerLink]="['/blog', blog.id]"><img [src]="blog.image" alt="{{ blog.date }}" /></a>
       <p>{{ blog.date }}</p>
-      <a routerLink="/blog"><h4>{{ blog.description }}</h4></a>
+      <a [routerLink]="['/blog', blog.id]"><h4>{{ blog.description }}</h4></a>
     </div>
   </div>
   

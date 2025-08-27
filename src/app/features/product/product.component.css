@@ -251,9 +251,9 @@ a{
   border-radius: 50px;
 }
 .store-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: auto;
-  padding: 2rem;
+  padding: 70px;
   font-family: 'Inter', sans-serif;
   color: #111;
 }
@@ -351,8 +351,9 @@ a{
 
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 30%));
   gap: 2rem;
+  justify-content: center;
 
   .product-card {
     border-radius: 12px;

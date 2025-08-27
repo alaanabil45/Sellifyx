@@ -9,6 +9,10 @@ export const routes: Routes = [
   { path: 'about', loadComponent: () => import('./features/about/about').then(m => m.About) },
   { path: 'support', loadComponent: () => import('./features/support/support').then(m => m.Support)},
   { path: 'contact', loadComponent: () => import('./features/contact/contact').then(m => m.Contact)},
-  {path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
+  { path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
+  { path: 'blog/:id', loadComponent: () => import('./features/blog-details/blog-details').then(m => m.BlogDetails) },
+  { path: 'product/:id',loadComponent: () => import('./features/product/product').then(m => m.ProductComponent)},
+  { path: 'product/:id', loadComponent: () => import('./features/product/product').then(m => m.ProductComponent) },
+
   { path: '**', redirectTo: '' },
 ];

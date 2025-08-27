@@ -1,0 +1,103 @@
+<body>
+          <header class="nav-root" [class.scrolled]="scrolled">
+    <nav class="nav container">
+      <a routerLink="/home" class="brand">
+        <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
+      </a>
+      <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
+      <div class="right">
+        <div class="cart-icon">
+          <span>0</span>
+          <a routerLink="/cart" (click)="open=false">
+            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart">
+          </a>
+        </div>
+
+        <ul class="nav-links" [class.open]="open">
+          <li><a routerLink="/product/all" (click)="open=false">Store</a></li>
+          <li><a routerLink="/about" (click)="open=true">About</a></li>
+          <li><a routerLink="/support" (click)="open=true">Support</a></li>
+          <li><a routerLink="/blogs" (click)="open=true">Blog</a></li>
+          <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
+          <li><a routerLink="/settings" (click)="open=true">Settings</a></li>
+        </ul>
+
+      
+        <div class="search-box" (click)="open=true">
+            <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <input type="text">
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+
+        <div class="header-user" (click)="toggleDropdown()">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21
+                        M16 7C16 9.20914 14.2091 11 12 11
+                        C9.79086 11 8 9.20914 8 7
+                        C8 4.79086 9.79086 3 12 3
+                        C14.2091 3 16 4.79086 16 7Z"
+                        stroke="#000000" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+
+            <div class="user-dropdown" *ngIf="showDropdown">
+                <ng-container *ngIf="user; else loginOption">
+                    <a routerLink="/profile"><p>Welcome, {{ username }}</p></a>
+                    <button (click)="logout()">Logout</button>
+                </ng-container>
+
+                <ng-template #loginOption>
+                    <button (click)="goToLogin()">Login</button>
+                </ng-template>
+                </div>   
+                
+                <div class="wishlist">
+            <a routerLink="/wishlist">
+                <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
+            </a>
+        </div>
+
+            </div>
+            
+     
+    </div>
+    </nav>
+        
+
+       
+   
+  </header>
+
+    <div *ngIf="blog" class="blog-details">
+        <p>{{ blog.date }}</p>
+        <h1>{{ blog.description }}</h1>
+        <div class="img">
+             <img [src]="blog.image" alt="{{ blog.title }}">
+        </div>
+        
+        <div class="content">
+            <h2>Introduction</h2>
+            <p>The world of technology is advancing faster than ever before, with each year bringing groundbreaking innovations that change the way we live, work, and interact with the world around us. As we approach 2025, it’s clear that the future of tech is full of exciting possibilities. From smarter wearables to AI-powered robots, this year is poised to bring new gadgets that will reshape our daily lives. In this blog post, we’ll explore the top 10 must-have gadgets for 2025 that you’ll want to have on your radar. Whether you’re a tech enthusiast, a professional, or simply someone who loves the latest trends, these gadgets will elevate your lifestyle to new heights.</p>
+
+            <h2>AI-Powered Smart Glasses</h2>
+            <p>Smart glasses have evolved dramatically, offering much more than just vision correction. With AI-powered features, these glasses provide real-time translation, augmented reality navigation, and instant access to notifications—all while keeping you connected without the need to pull out your phone. These glasses are designed to enhance your daily life by offering a seamless blend of technology and convenience, all while keeping your hands free.</p>
+
+            <h2>Foldable Smartphones 2.0</h2>
+            <p>The future of smartphones is here with the next generation of foldable phones. These devices are designed with improved durability and flexible displays, offering the power and screen real estate of a tablet in a compact, foldable format. Whether you're working on-the-go, watching content, or gaming, these phones provide an innovative design that delivers on both form and function.</p>
+
+            <h2>Smart Home Robot Assistants</h2>
+            <p>Imagine having an AI-powered robot in your home that can help with everything from household chores to personal tasks. These smart home assistants are evolving into more sophisticated, human-like robots that can learn your preferences, adjust your home’s temperature, and even help you with meal prep. These robots will not only make your home smarter but also significantly improve your productivity and convenience.</p>
+
+            <h2>Wireless Charging Stations</h2>
+            <p>Gone are the days of tangled cords and multiple charging adapters. The latest wireless charging stations support fast charging for a variety of devices, including smartphones, tablets, smartwatches, and even your wireless earbuds. With a sleek, minimalist design, these charging stations can simultaneously charge multiple devices, reducing clutter and making your life easier.</p>
+
+            <h2>Wireless Charging Stations</h2>
+            <p>Gone are the days of tangled cords and multiple charging adapters. The latest wireless charging stations support fast charging for a variety of devices, including smartphones, tablets, smartwatches, and even your wireless earbuds. With a sleek, minimalist design, these charging stations can simultaneously charge multiple devices, reducing clutter and making your life easier.</p>
+
+            <h2>Conclusion</h2>
+            <p>The tech world in 2025 is set to be futuristic and full of possibilities. These top 10 must-have gadgets are at the forefront of this revolution, offering everything from smarter wearables to AI-driven home assistants. Whether you're a tech enthusiast or someone looking to stay ahead of the curve, these gadgets are sure to elevate your daily routine. The future is here, and it's more exciting than ever!</p>
+        </div>
+    </div>
+
+</body>

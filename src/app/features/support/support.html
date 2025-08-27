@@ -1,1 +1,213 @@
-<p>support works!</p>
+<header class="nav-root" [class.scrolled]="scrolled">
+    <nav class="nav container">
+      <a routerLink="/home" class="brand">
+        <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
+      </a>
+      <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
+      <div class="right">
+        <div class="cart-icon">
+          <span>0</span>
+          <a routerLink="/cart" (click)="open=false">
+            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart">
+          </a>
+        </div>
+
+        <ul class="nav-links" [class.open]="open">
+          <li><a routerLink="/product/all" (click)="open=false">Store</a></li>
+          <li><a routerLink="/about" (click)="open=true">About</a></li>
+          <li><a routerLink="/support" (click)="open=true">Support</a></li>
+          <li><a routerLink="/blogs" (click)="open=true">Blog</a></li>
+          <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
+          <li><a routerLink="/settings" (click)="open=true">Settings</a></li>
+        </ul>
+
+      
+        <div class="search-box" (click)="open=true">
+            <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <input type="text">
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+
+        <div class="header-user" (click)="toggleDropdown()">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21
+                        M16 7C16 9.20914 14.2091 11 12 11
+                        C9.79086 11 8 9.20914 8 7
+                        C8 4.79086 9.79086 3 12 3
+                        C14.2091 3 16 4.79086 16 7Z"
+                        stroke="#000000" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+
+            <div class="user-dropdown" *ngIf="showDropdown">
+                <ng-container *ngIf="user; else loginOption">
+                    <a routerLink="/profile"><p>Welcome, {{ username }}</p></a>
+                    <button (click)="logout()">Logout</button>
+                </ng-container>
+
+                <ng-template #loginOption>
+                    <button (click)="goToLogin()">Login</button>
+                </ng-template>
+                </div>   
+                
+                <div class="wishlist">
+            <a routerLink="/wishlist">
+                <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
+            </a>
+        </div>
+
+            </div>
+            
+     
+    </div>
+    </nav>
+            
+   
+  </header>
+
+
+<div class="faq-section">
+  <!-- Left Side-->
+  <div class="left-box">
+    <h2>FAQ</h2>
+    <p>
+      Explore a thoughtfully curated selection of premium products, meticulously chosen 
+      to enrich your everyday life with sophistication, comfort, and lasting value.
+    </p>
+    <h2>Need Help?</h2>
+    <p>
+      If you have a question or need immediate assistance, simply click the button below 
+      to get in touch with a Customer Service representative.
+    </p>
+    <p>
+      <small>Please note: Refunds may take 6–12 business days to process after we receive your returned package.</small>
+    </p>
+    <button class="send-btn" routerLink="/contact">Send Message</button>
+  </div>
+
+  <!-- Right Side-->
+  <div class="right-box">
+    <h2>Shopping Information</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(0)">
+          How Do I Place An Order?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 0">
+          Placing an order is simple and secure. Start by browsing our range of premium products and click on any item you’d like to purchase. Once you’ve found what you’re looking for, click “Add to Cart.” You can continue shopping or head straight to checkout.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(1)">
+          What Payment Methods Do You Accept?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 1">
+          We accept a variety of payment methods including credit cards, debit cards, PayPal, bank transfers, and digital wallets. Some locations may also support cash on delivery. Please check the payment options available during checkout for your specific region or country.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(2)">
+          Can I Modify Or Cancel My Order After Placing It?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 2">
+          Yes, you can modify or cancel your order within a limited time after placing it. This depends on the order status. If it hasn’t been processed or shipped yet, you can make changes by contacting our customer support team as soon as possible.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(3)">
+          How Can I Track My Order?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 3">
+          You can track your order by logging into your account and visiting the “My Orders” section. Once your order is shipped, a tracking number will be provided via email or SMS, allowing you to monitor its status through the courier’s tracking website.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(4)">
+          Do You Ship Internationally?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 4">
+          Yes, we offer international shipping to many countries. Shipping availability, delivery times, and costs may vary depending on the destination. During checkout, you can view international shipping options and estimated delivery dates before placing your order. Customs fees may apply based on location.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Payment Information</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(5)">
+          When Will I Be Charged For My Order?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 5">
+            You will be charged for your order at the time of purchase. For credit/debit cards and digital payments, the charge is processed immediately. In some cases, a temporary hold may appear first, with the full charge confirmed once the order is confirmed or shipped.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(6)">
+          Why Was My Payment Declined?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 6">
+          Your payment may have been declined due to incorrect card details, insufficient funds, expired card, or bank security measures. Sometimes, banks block unfamiliar transactions for safety. We recommend checking your details, contacting your bank, or trying a different payment method to complete the purchase.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Order & Returns</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(7)">
+          How Do I Place An Order?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 7">
+          To place an order, browse the products, select your desired items, and add them to your cart. Proceed to checkout, enter your shipping and payment details, then confirm your order. You’ll receive a confirmation email once the order is successfully placed.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" (click)="toggleAccordion(8)">
+          How Do I Modify Or Cancel My Order?
+          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+        </button>
+        <div class="accordion-body" [class.active]="activeIndex === 8">
+          To modify or cancel your order, contact customer support as soon as possible. If your order hasn't been processed or shipped yet, they can assist with changes. However, once an order is shipped, it may not be possible to modify or cancel it.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribe Section -->
+<section class="newsletter-section">
+        <div class="offer-box offer-left">10% Off</div>
+        <div class="middle">
+            <h2>Join Our Community – Get Exclusive<br/> Offers!</h2>
+            <p>Subscribe to our email newsletter and stay updated with the<br/> latest news, exclusive offers, and exciting product launches.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <div class="offer-box offer-right">Offers</div>
+</section>
+
+
+
+
+
+
+

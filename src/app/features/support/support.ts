@@ -1,11 +1,64 @@
 import { Component } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+import { FirestoreService } from '../auth/firestore.service';
+import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 @Component({
   selector: 'app-support',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './support.html',
-  styleUrl: './support.css'
+  styleUrls: ['./support.css']
 })
 export class Support {
+  activeIndex: number | null = null;
 
+  toggleAccordion(index: number) {
+    if (this.activeIndex === index) {
+      this.activeIndex = null; 
+    } else {
+      this.activeIndex = index; 
+    }
+  }
+  showDropdown = false;
+  user: User | null = null;
+open: any;
+scrolled: any;
+
+constructor(
+    private firestoreService: FirestoreService,
+    private router: Router,
+    private auth: Auth
+  ) {}
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+
+  logout() {
+    if (this.user) {
+      signOut(this.auth).then(() => {
+        this.router.navigate(['/auth/login']);
+        this.showDropdown = false;
+      });
+    }
+  }
+
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+    this.showDropdown = false;
+  }
+
+  get username() {
+    return this.user?.displayName || this.user?.email || 'User';
+  }
 }
+
+
+
+
+
+
+
+
+

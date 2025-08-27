@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { Blogs } from './features/blogs/blogs';
+import { Contact } from './features/contact/contact';
+import { Support} from './features/support/support';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -10,5 +12,7 @@ export const routes: Routes = [
   { path: 'support', loadComponent: () => import('./features/support/support').then(m => m.Support)},
   { path: 'contact', loadComponent: () => import('./features/contact/contact').then(m => m.Contact)},
   {path: 'blogs', loadComponent: () => import('./features/blogs/blogs').then(m => m.Blogs)},
+  { path: 'support', component: Support },
+  { path: 'contact', component: Contact },
   { path: '**', redirectTo: '' },
 ];

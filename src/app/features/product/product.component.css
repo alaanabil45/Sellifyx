@@ -370,20 +370,7 @@ a{
       filter: brightness(50%);
     }
 
-    .img-box {
-      position: relative;
-      text-align: center;
-      
-      
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-       transition: all 0.4s ease;
-      }
-
-      .overlay {
+    .overlay {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -411,6 +398,21 @@ a{
         left: 50%;
       }
 
+
+    .img-box {
+      position: relative;
+      text-align: center;
+      
+      
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+       transition: all 0.4s ease;
+      }
+
+      
       .tag {
         position: absolute;
         bottom: 20px;

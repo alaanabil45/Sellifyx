@@ -268,6 +268,189 @@ a{
   border-radius: 50px;
 }
 
+/* About Hero Section */ 
+.about-hero {
+  padding: 100px 20px;
+  background-color: #fff;
+  text-align: center;
+} 
+
+.about-hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+} 
+
+.about-hero-content {
+ margin-bottom: 60px;
+}
+
+.about-hero-content h1 {
+ font-size: 55px;
+ font-weight: 450;
+ margin-bottom: 20px;
+ color: #111;
+} 
+
+.about-hero-content p {
+ font-size: 18px;
+ line-height: 1.6; 
+ color: #555;
+ margin: 0 auto; 
+ max-width: 800px; 
+}
+
+
+/* Images Row */
+.about-hero-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin-top: 30px;
+  flex-wrap: wrap; 
+}
+
+.image-box {
+  background-color: #f0f0f0;  
+  width: 270px;  
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img {
+  max-width: 70%;  
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
+/* success-section */
+.success-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 40px;
+  flex-wrap: nowrap;
+}
+
+
+.left-image {
+  width: 850px; 
+  height: 550px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+
+.text-box1 {
+  width: 500px;
+  height: 480px;
+  background-color: #fafafa;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.text-box1 h2 {
+  font-size: 35px; 
+  line-height: 1.1; 
+  margin: 0 0 20px 0;
+  font-weight: 550; 
+}
+
+
+.text-box1 p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact-btn{
+  margin-top: 30px;
+  padding: 15px 35px; 
+  font-size: 20px; 
+  font-weight: 600;
+  border: none;
+  background-color: #000; 
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.contact-btn:hover {
+  background-color: #fff; 
+  color: #000; 
+  border: 1px solid #000; 
+}
+
+
+
+/* store-section */
+.store-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  flex-wrap: nowrap;
+}
+
+.side-image {
+  width: 500px; 
+  height: 620px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.text-box2 {
+  width: 470px;
+  height: 550px;
+  background-color: #fafafa;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.text-box2 h2 {
+  font-size: 35px; 
+  line-height: 1.1; 
+  margin: 0 0 20px 0;
+  font-weight: 550; 
+}
+
+.text-box2 p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact-btn{
+  margin-top: 30px;
+  padding: 15px 35px; 
+  font-size: 20px; 
+  font-weight: 600;
+  border: none;
+  background-color: #000; 
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.contact-btn:hover {
+  background-color: #fff; 
+  color: #000; 
+  border: 1px solid #000; 
+}
+
+
+
 
 
 
@@ -290,11 +473,10 @@ a{
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   margin: 70px ;
   max-width: 88%;
-      
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      height: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
 }
 
 .newsletter-form {

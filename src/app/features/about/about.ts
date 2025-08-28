@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FirestoreService } from '../auth/firestore.service';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
 export class About {
+
   showDropdown = false;
   user: User | null = null;
 open: any;

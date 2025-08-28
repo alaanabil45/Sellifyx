@@ -33,11 +33,11 @@ h4{
 
 h3{
   color: #111;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 500;
-  line-height: 34px;
+  line-height: 42px;
   font-family: 'Inter', sans-serif;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
 }
 
 p{
@@ -46,6 +46,7 @@ p{
   font-weight: 400;
   font-size: 17px;
   font-family: 'Outfit', sans-serif;
+  padding-bottom: 50px;
 }
 
 a{
@@ -271,40 +272,32 @@ a{
 .faq-section {
   display: flex;
   gap: 40px;
-  padding: 50px;
+  padding: 100px 60px;
 }
 
-.faq-section h2 {
-  font-size: 36px; 
-  font-weight: bold;
-  color: #000; 
-}
 
-.faq-section p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #999; 
-}
 
 .left-box {
   flex: 1 1 40%;
-  padding-right: 20px;
-  border-right: 2px solid #ddd; 
+  padding-right: 100px;
+ 
 }
 
 .right-box {
   flex: 1 1 60%;
-  padding-left: 20px;
+  padding-left: 50px;
+   border-left: 2px solid #ddd; 
 }
 
 .send-btn {
   border: 1px solid black;
-  border-radius: 30px;
-  padding: 15px 35px; 
+  border-radius: 50px;
+  padding: 21px 35px; 
   background: none;
   cursor: pointer;
-  font-size: 18px;   
-  font-weight: bold;
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 600;
   transition: 0.3s ease;
 }
 
@@ -321,33 +314,45 @@ a{
 .accordion-button {
   width: 100%;
   text-align: left;
-  padding: 15px 20px;
+  padding: 40px 50px;
+  margin-bottom: 20px;
   font-size: 18px;
-  font-weight: bold;
   border: none;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  border-radius: 30px;
+  background-color: #f8f8f8;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: background-color 0.3s;
 }
 
-.accordion-button:hover {
-  background-color: #e0e0e0;
+.accordion-button .first{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
 }
 
+
 .accordion-icon {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 200;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.accordion-icon.rotate {
+  transform: rotate(45deg);
 }
 
 .accordion-body {
   max-height: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: 'Outfit', sans-serif;
   overflow: hidden;
-  padding: 0 20px;
-  background-color: #fafafa;
+  background-color: #f8f8f8;
   border: none;
   color: #666;
   transition: max-height 0.3s ease, padding 0.3s ease;
@@ -355,7 +360,7 @@ a{
 
 .accordion-body.active {
   max-height: 500px;
-  padding: 10px 20px;
+  padding: 30px 0 0 0;
 }
 
 /* Subscribe */

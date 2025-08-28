@@ -1,0 +1,207 @@
+.drawer {
+  position: fixed;
+  top: 0; /* Changed to take full height from top */
+  right: 0;
+  height: 100%; /* Changed to take full height */
+  width: 450px; /* Increased width for a larger cart drawer */
+  max-width: 100vw; /* Allow it to take full viewport width if needed */
+  background: #fff;
+  box-shadow: -8px 0 24px rgba(0,0,0,0.08);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  border-radius: 0; /* Removed border-radius for full height to match website design */
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-title{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.close-btn{
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.drawer-content {
+  padding: 24px;
+  height: calc(100% - 220px); /* Adjusted to ensure header and footer are fully visible */
+  overflow-y: auto;
+}
+
+.drawer-footer {
+  border-top: 1px solid #eee;
+  padding: 24px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e11d48;
+  cursor: pointer;
+}
+
+.qty-btn{
+  background: none;
+  border: none;
+  font-size: 20px; /* Adjusted font size */
+  cursor: pointer;
+  color: #333;
+  padding: 0;
+}
+
+.qty-control{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 4px 8px;
+}
+
+.item-row{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  border-bottom:1px solid #eee;
+  padding:16px 0;
+}
+
+.item-row:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.item-row img {
+  min-width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-row h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #111;
+}
+
+.item-right{ 
+  margin-left: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.qty-display{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px; /* Adjusted width */
+  height: 44px; /* Adjusted height */
+  border: 1px solid #e5e5e5;
+  border-radius: 10px; /* Adjusted border-radius */
+  padding: 0 10px; /* Adjusted padding */
+  gap: 8px;
+}
+.qty-display span {
+  font-weight: 600;
+  color: #111;
+  font-size: 16px; /* Adjusted font size */
+}
+.price-line{ 
+  margin: 8px 0; 
+  font-weight:700; 
+  color: #111;
+  font-size: 16px;
+}
+.unit-price{
+  color:#666;
+  font-size: 14px;
+}
+.remove-link{
+  background:none;
+  border:none;
+  color:#2563eb;
+  text-decoration: underline;
+  cursor:pointer;
+  padding:0;
+  font-size: 14px;
+}
+
+.subtotal-row{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-bottom:20px; /* Adjusted margin */
+  font-size: 18px;
+  font-weight: 400; /* Changed to normal font weight for 'Subtotal' text */
+  color: #111;
+}
+
+.subtotal-row strong {
+  font-weight: 700; /* Kept bold for the amount */
+}
+
+.pay-with-browser-btn {
+  width: 100%;
+  background: #f0f0f0; /* Lighter background */
+  color: #333;
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 28px; /* Adjusted border-radius */
+  padding: 16px 18px; /* Adjusted padding */
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px; /* Adjusted margin */
+}
+
+.or-separator {
+  text-align: center;
+  margin: 20px 0; /* Adjusted margin */
+  color: #888;
+  position: relative;
+  font-size: 14px;
+}
+
+.or-separator::before,
+.or-separator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%; /* Adjusted width for more space */
+  height: 1px;
+  background: #eee;
+}
+
+.checkout-btn{
+  width:100%;
+  background:#111;
+  color:#fff;
+  border:none;
+  border-radius:28px; /* Adjusted border-radius */
+  padding:16px 18px; /* Adjusted padding */
+  cursor:pointer;
+  font-weight:700;
+  font-size: 16px;
+}
+
+

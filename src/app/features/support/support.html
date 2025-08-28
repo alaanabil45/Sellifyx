@@ -70,7 +70,7 @@
 <div class="faq-section">
   <!-- Left Side-->
   <div class="left-box">
-    <h2>FAQ</h2>
+    <h1>FAQ</h1>
     <p>
       Explore a thoughtfully curated selection of premium products, meticulously chosen 
       to enrich your everyday life with sophistication, comfort, and lasting value.
@@ -79,111 +79,146 @@
     <p>
       If you have a question or need immediate assistance, simply click the button below 
       to get in touch with a Customer Service representative.
-    </p>
-    <p>
       <small>Please note: Refunds may take 6–12 business days to process after we receive your returned package.</small>
     </p>
+    
     <button class="send-btn" routerLink="/contact">Send Message</button>
   </div>
 
   <!-- Right Side-->
   <div class="right-box">
-    <h2>Shopping Information</h2>
+    <h3>Shopping Information</h3>
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(0)">
-          How Do I Place An Order?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            How Do I Place An Order?
+            <span class="accordion-icon" [class.rotate]="activeIndex === 0">+</span>
+          </div>
+          
+          <div class="accordion-body" [class.active]="activeIndex === 0">
+            Placing an order is simple and secure. Start by browsing our range of premium products and click on any item you’d like to purchase. Once you’ve found what you’re looking for, click “Add to Cart.” You can continue shopping or head straight to checkout.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 0">
-          Placing an order is simple and secure. Start by browsing our range of premium products and click on any item you’d like to purchase. Once you’ve found what you’re looking for, click “Add to Cart.” You can continue shopping or head straight to checkout.
-        </div>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(1)">
-          What Payment Methods Do You Accept?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            What Payment Methods Do You Accept?
+            <span class="accordion-icon">{{ activeIndex === 1 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 1">
+            We accept a variety of payment methods including credit cards, debit cards, PayPal, bank transfers, and digital wallets. Some locations may also support cash on delivery. Please check the payment options available during checkout for your specific region or country.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 1">
-          We accept a variety of payment methods including credit cards, debit cards, PayPal, bank transfers, and digital wallets. Some locations may also support cash on delivery. Please check the payment options available during checkout for your specific region or country.
-        </div>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(2)">
-          Can I Modify Or Cancel My Order After Placing It?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            Can I Modify Or Cancel My Order After Placing It?
+            <span class="accordion-icon">{{ activeIndex === 2 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 2">
+            Yes, you can modify or cancel your order within a limited time after placing it. This depends on the order status. If it hasn’t been processed or shipped yet, you can make changes by contacting our customer support team as soon as possible.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 2">
-          Yes, you can modify or cancel your order within a limited time after placing it. This depends on the order status. If it hasn’t been processed or shipped yet, you can make changes by contacting our customer support team as soon as possible.
-        </div>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(3)">
-          How Can I Track My Order?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            How Can I Track My Order?
+            <span class="accordion-icon">{{ activeIndex === 3 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 3">
+            You can track your order by logging into your account and visiting the “My Orders” section. Once your order is shipped, a tracking number will be provided via email or SMS, allowing you to monitor its status through the courier’s tracking website.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 3">
-          You can track your order by logging into your account and visiting the “My Orders” section. Once your order is shipped, a tracking number will be provided via email or SMS, allowing you to monitor its status through the courier’s tracking website.
-        </div>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(4)">
-          Do You Ship Internationally?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            Do You Ship Internationally?
+            <span class="accordion-icon">{{ activeIndex === 4 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 4">
+            Yes, we offer international shipping to many countries. Shipping availability, delivery times, and costs may vary depending on the destination. During checkout, you can view international shipping options and estimated delivery dates before placing your order. Customs fees may apply based on location.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 4">
-          Yes, we offer international shipping to many countries. Shipping availability, delivery times, and costs may vary depending on the destination. During checkout, you can view international shipping options and estimated delivery dates before placing your order. Customs fees may apply based on location.
-        </div>
+        
       </div>
     </div>
 
-    <h2 class="mt-4">Payment Information</h2>
+    <h3 class="mt-4">Payment Information</h3>
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(5)">
-          When Will I Be Charged For My Order?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
-        </button>
-        <div class="accordion-body" [class.active]="activeIndex === 5">
+         <div class="first">
+            When Will I Be Charged For My Order?
+            <span class="accordion-icon">{{ activeIndex === 5 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 5">
             You will be charged for your order at the time of purchase. For credit/debit cards and digital payments, the charge is processed immediately. In some cases, a temporary hold may appear first, with the full charge confirmed once the order is confirmed or shipped.
-        </div>
+          </div>
+        </button>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(6)">
-          Why Was My Payment Declined?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            Why Was My Payment Declined?
+            <span class="accordion-icon">{{ activeIndex === 6 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 6">
+            Your payment may have been declined due to incorrect card details, insufficient funds, expired card, or bank security measures. Sometimes, banks block unfamiliar transactions for safety. We recommend checking your details, contacting your bank, or trying a different payment method to complete the purchase.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 6">
-          Your payment may have been declined due to incorrect card details, insufficient funds, expired card, or bank security measures. Sometimes, banks block unfamiliar transactions for safety. We recommend checking your details, contacting your bank, or trying a different payment method to complete the purchase.
-        </div>
+        
       </div>
     </div>
 
-    <h2 class="mt-4">Order & Returns</h2>
+    <h3 class="mt-4">Order & Returns</h3>
     <div class="accordion">
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(7)">
-          How Do I Place An Order?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            How Do I Place An Order?
+            <span class="accordion-icon">{{ activeIndex === 7 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 7">
+            To place an order, browse the products, select your desired items, and add them to your cart. Proceed to checkout, enter your shipping and payment details, then confirm your order. You’ll receive a confirmation email once the order is successfully placed.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 7">
-          To place an order, browse the products, select your desired items, and add them to your cart. Proceed to checkout, enter your shipping and payment details, then confirm your order. You’ll receive a confirmation email once the order is successfully placed.
-        </div>
+        
       </div>
 
       <div class="accordion-item">
         <button class="accordion-button" (click)="toggleAccordion(8)">
-          How Do I Modify Or Cancel My Order?
-          <span class="accordion-icon">{{ activeIndex === 0 ? '×' : '+' }}</span>
+          <div class="first">
+            How Do I Modify Or Cancel My Order?
+            <span class="accordion-icon">{{ activeIndex === 8 ? '×' : '+' }}</span>
+          </div>
+
+          <div class="accordion-body" [class.active]="activeIndex === 8">
+            To modify or cancel your order, contact customer support as soon as possible. If your order hasn't been processed or shipped yet, they can assist with changes. However, once an order is shipped, it may not be possible to modify or cancel it.
+          </div>
         </button>
-        <div class="accordion-body" [class.active]="activeIndex === 8">
-          To modify or cancel your order, contact customer support as soon as possible. If your order hasn't been processed or shipped yet, they can assist with changes. However, once an order is shipped, it may not be possible to modify or cancel it.
-        </div>
+       
       </div>
     </div>
   </div>

@@ -400,9 +400,7 @@ a{
       height: 400px;
 }
 
-
-
-    .newsletter-form {
+.newsletter-form {
       display: flex;
       justify-content: center;
       gap: 10px;

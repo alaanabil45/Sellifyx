@@ -109,12 +109,12 @@
                   [disabled]="p.isLoading">
             {{ p.isLoading ? 'Loading to cart...' : 'Add to Cart' }}
           </button>
-          <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
+          <!-- make the button for the wishlist here  -->
+          <button class="btn btn-link" (click) ="toggleWishlist(p)">
+            <i class="fas fa-heart fa-2x"></i></button>
         </div>
       </div>
     </div>
-  </div>
-
-  
+  </div>  
 </div>
 

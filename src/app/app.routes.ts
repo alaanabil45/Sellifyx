@@ -3,6 +3,7 @@ import { Blogs } from './features/blogs/blogs';
 import { Contact } from './features/contact/contact';
 import { Support} from './features/support/support';
 import { ProductComponent } from './features/product/product';
+import { CheckoutComponent } from './features/checkout/checkout';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'blog/:id', loadComponent: () => import('./features/blog-details/blog-details').then(m => m.BlogDetails) },
   { path: 'product/:id',loadComponent: () => import('./features/product/product').then(m => m.ProductComponent)},
   { path: 'productdetails/:id', loadComponent: () => import('./components/product-detail/product-detail.component').then(m => m.ProductDetailComponent ) },
+  { path: 'checkout', component: CheckoutComponent },
   { path: '**', redirectTo: '' },
 ];

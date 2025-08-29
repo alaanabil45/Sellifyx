@@ -5,7 +5,7 @@ import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 import { CartService } from '../../services/cart.service';
 import { CartUiService } from '../../services/cart-ui.service';
-
+import { WishlistService } from '../../services/wishlist';
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -32,6 +32,7 @@ scrolled: any;
     private router: Router, 
     private auth: Auth,
     public cartService: CartService, private cartUi: CartUiService,
+    private wishlistService: WishlistService,
   ) {}
 
   openCart() {
@@ -117,5 +118,20 @@ scrolled: any;
 
   get username() {
     return this.user?.displayName || this.user?.email || 'User';
+  }
+
+    
+  // Check if product is in wishlist
+  isInWishlist(): boolean {
+    return this.wishlistService.isInWishlist(this.product.id);
+  }
+
+  // Toggle wishlist status
+  toggleWishlist(product : ProductComponent): void {
+    if (this.isInWishlist()) {
+      this.wishlistService.removeFromWishlist(this.product.id);
+    } else {
+      this.wishlistService.addToWishlist(this.product); // Pass product object
+    }
   }
 }

@@ -84,4 +84,8 @@ scrolled: any;
   get username() {
     return this.user?.displayName || this.user?.email || 'User';
   }
+  goToProfile() {
+  this.router.navigate(['/profile']);
+  this.showDropdown = false; 
+}
 }

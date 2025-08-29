@@ -2,40 +2,57 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CartService, CartItem } from '../../services/cart.service'; // Updated import
+import { RouterModule,Router } from '@angular/router';
+import { CartService, CartItem } from '../../services/cart.service';
+import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+import { CartUiService } from '../../services/cart-ui.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './checkout.html',
   styleUrls: ['./checkout.css']
 })
 export class CheckoutComponent implements OnInit {
-  checkoutForm: FormGroup;
-  cartItems: CartItem[] = []; // Use your CartItem interface
+  checkoutForm!: FormGroup; // Use definite assignment
+  cartItems: CartItem[] = [];
   subtotal: number = 0;
   loading: boolean = false;
+  showDropdown: boolean = false;
+  user: User | null = null;
+  scrolled: any;
+ open: any; 
 
   constructor(
     private fb: FormBuilder,
-    private cartService: CartService, // Your cart service
-    private router: Router
-  ) {
-    this.checkoutForm = this.fb.group({});
-  }
+    public cartService: CartService,
+    private auth: Auth,
+    private router: Router,
+    private cartUi: CartUiService
+  ) {}
 
   ngOnInit(): void {
+    // Listen to auth state
+    onAuthStateChanged(this.auth, (user) => {
+      this.user = user;
+    });
+
     this.loadCartItems();
     this.initForm();
   }
 
+  // Load cart items and subtotal safely
   loadCartItems(): void {
-    this.cartItems = this.cartService.getCart(); // Use getCart() instead of getCartItems()
-    this.subtotal = this.cartService.getSubtotal(); // Use getSubtotal() instead of getTotalPrice()
+    if (this.cartService.getCart) {
+      this.cartItems = this.cartService.getCart();
+    }
+    if (this.cartService.getSubtotal) {
+      this.subtotal = this.cartService.getSubtotal();
+    }
   }
 
+  // Initialize checkout form with validators
   initForm(): void {
     this.checkoutForm = this.fb.group({
       // Personal Information
@@ -63,23 +80,23 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  // Form submission
   onSubmit(): void {
     if (this.checkoutForm.valid) {
       this.loading = true;
       console.log('Order placed:', this.checkoutForm.value);
-      
-      // Simulate API call
+
       setTimeout(() => {
         this.loading = false;
-        this.cartService.clearCart(); // Use your clearCart method
-        this.router.navigate(['/order-confirmation']);
+        this.cartService.clearCart?.(); // safe call
+        this.router.navigate(['/home']);
       }, 2000);
     } else {
-      // Mark all fields as touched to show validation errors
       this.markFormGroupTouched(this.checkoutForm);
     }
   }
 
+  // Mark all controls as touched to show validation errors
   private markFormGroupTouched(formGroup: FormGroup): void {
     Object.values(formGroup.controls).forEach(control => {
       control.markAsTouched();
@@ -89,6 +106,38 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  // Dropdown toggle
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+
+  // Open cart UI
+  openCart() {
+    this.cartUi.open?.(); // safe call
+  }
+
+  // Logout
+  logout() {
+    if (this.user) {
+      signOut(this.auth).then(() => {
+        this.router.navigate(['/auth/login']);
+        this.showDropdown = false;
+      });
+    }
+  }
+
+  // Navigate to login
+  goToLogin() {
+    this.router.navigate(['/auth/login']);
+    this.showDropdown = false;
+  }
+
+  // Get username display
+  get username(): string {
+    return this.user?.displayName || this.user?.email || 'User';
+  }
+
+  // Shortcut to access form controls in template
   get formControls() {
     return this.checkoutForm.controls;
   }

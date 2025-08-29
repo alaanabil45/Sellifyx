@@ -1,3 +1,70 @@
+<header class="nav-root" [class.scrolled]="scrolled">
+    <nav class="nav container">
+      <a routerLink="/home" class="brand">
+        <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67f74edab1afdf10f240750b_Sellifyx.svg" alt="logo">
+      </a>
+      <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
+      <div class="right">
+        <div class="cart-icon">
+          <span>{{ cartService.getTotalQuantity() }}</span>
+          <a (click)="openCart()" style="cursor: pointer;">
+            <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart">
+          </a>
+        </div>
+
+        <ul class="nav-links" [class.open]="open">
+          <li><a routerLink="/product/all" (click)="open=false">Store</a></li>
+          <li><a routerLink="/about" (click)="open=true">About</a></li>
+          <li><a routerLink="/support" (click)="open=true">Support</a></li>
+          <li><a routerLink="/blogs" (click)="open=true">Blog</a></li>
+          <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
+        </ul>
+
+      
+        <div class="search-box" (click)="open=true">
+            <svg class="search-icon" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#878787" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <input type="text">
+            <button type="submit" class="search-btn">Search</button>
+        </div>
+
+        <div class="header-user" (click)="toggleDropdown()">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21
+                        M16 7C16 9.20914 14.2091 11 12 11
+                        C9.79086 11 8 9.20914 8 7
+                        C8 4.79086 9.79086 3 12 3
+                        C14.2091 3 16 4.79086 16 7Z"
+                        stroke="#000000" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+
+            <div class="user-dropdown" *ngIf="showDropdown">
+                <ng-container *ngIf="user; else loginOption">
+                    <a routerLink="/profile"><p>Welcome, {{ username }}</p></a>
+                    <button (click)="logout()">Logout</button>
+                </ng-container>
+
+                <ng-template #loginOption>
+                    <button (click)="goToLogin()">Login</button>
+                </ng-template>
+                </div>   
+                
+                <div class="wishlist">
+            <a routerLink="/wishlist">
+                <img src="https://www.svgrepo.com/show/532468/heart-alt.svg" alt="">
+            </a>
+        </div>
+
+            </div>
+            
+     
+    </div>
+    </nav>
+            
+   
+  </header>
+
 <!-- checkout.component.html -->
 <div class="checkout-container">
   <div class="checkout-header">
@@ -8,7 +75,7 @@
   <div class="checkout-content">
     <!-- Order Summary -->
     <div class="order-summary">
-      <h3>Order Summary</h3>
+      <h3>Order Summary</h3> 
       <div class="cart-items">
         <div *ngFor="let item of cartItems" class="cart-item">
             <!-- modified image  -->

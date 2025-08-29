@@ -11,6 +11,13 @@
 
   <body>
     <router-outlet></router-outlet>
+    <!-- Loading toast -->
+    
+    <div class="backdrop" *ngIf="cartOpen" (click)="onCartClose()"></div>
+    <!-- Global Cart Drawer for Webflow-like UX -->
+    <app-cart-drawer [isOpen]="cartOpen" (close)="onCartClose()"></app-cart-drawer>
+
+
 
     <footer>
         <div class="first">

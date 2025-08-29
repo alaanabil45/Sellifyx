@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+import { CartService } from '../../services/cart.service';
+import { CartUiService } from '../../services/cart-ui.service';
 
 @Component({
   selector: 'app-product',
@@ -21,14 +23,37 @@ export class ProductComponent implements OnInit {
   user: User | null = null;
 open: any;
 scrolled: any;
+@Input() product: any;
+  isLoading = false;
 
   constructor(
     private firestore: Firestore, 
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,  
     private router: Router, 
-    private auth: Auth
+    private auth: Auth,
+    public cartService: CartService, private cartUi: CartUiService,
   ) {}
 
+  openCart() {
+    this.cartUi.open();
+  }
+  addToCart() {
+    if (this.isLoading) return;
+    this.isLoading = true;
+    this.cartUi.showLoading('Loading to cart...');
+    setTimeout(() => {
+      const productToAdd = {
+        ...this.product,
+        // Extract only numeric part from price string before converting to Number
+        price: Number(this.product.price.toString().replace(/[^0-9.]/g, '')) || 0,
+        quantity: 1 // Always add 1 when first adding to cart, service handles increments
+      };
+      this.cartService.addToCart(productToAdd);
+      this.cartUi.hideLoading();
+      this.cartUi.open();
+      this.isLoading = false;
+    }, 600);
+  }
   ngOnInit() {
     const categoryFromRoute = this.route.snapshot.paramMap.get('id'); 
 
@@ -68,7 +93,7 @@ scrolled: any;
   }
 
   goToProduct(id: string) {
-    this.router.navigate(['/product', id]);
+    this.router.navigate(['/productdetails', id]);
   }
 
 

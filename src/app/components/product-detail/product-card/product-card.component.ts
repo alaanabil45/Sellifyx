@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
-import { CartUiService } from '../../services/cart-ui.service';
+import { CartService } from '../../../services/cart.service';
+import { CartUiService } from '../../../services/cart-ui.service';
 import { Router } from '@angular/router'; // Import Router
 
 
@@ -34,10 +34,9 @@ export class ProductCardComponent {
       this.cartUi.open();
       this.isLoading = false;
     }, 600);
-  }
+  } 
 
   viewProductDetails() {
     this.router.navigate(['/product', this.product.id]);
   }
 }
-

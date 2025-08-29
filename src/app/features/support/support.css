@@ -191,13 +191,94 @@ a{
   color: white;
 }
 
-@media (max-width:768px) {
-  .hamburger { display:block; }
-  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
-  .nav-links.open { display:flex; }
-  div{
+/* لحد التابلت */
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px 20px;
+  }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hamburger { 
+    display:block; 
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav { 
     flex-wrap: wrap;
-    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* اللوجو */
+  .brand img {
+    width: 90px;
+  }
+
+  /* اللينكات */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 12px;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* السيرش بوكس */
+  .search-box {
+    display: none;
+  }
+
+  /* نخلي أيقونة بحث مكان البوكس */
+  .search-icon-mobile {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* الايقونات */
+  .right {
+    gap: 15px;
+  }
+
+  .cart-icon {
+    padding: 10px;
+  }
+
+  .cart-icon span {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wishlist img {
+    width: 24px;
+    padding: 6px;
+  }
+
+  .header-user svg {
+    padding: 6px;
   }
 }
 
@@ -467,12 +548,125 @@ a{
       transform: rotate(15deg) translateY(-50%);
     }
 
-@media (max-width: 768px) {
+/* === FAQ & Newsletter Responsive === */
+
+/* FAQ Section */
+.faq-section {
+  display: flex;
+  gap: 40px;
+  padding: 100px 60px;
+  flex-wrap: wrap; /* يسمح بالترتيب العمودي عند الشاشات الصغيرة */
+}
+
+.left-box {
+  flex: 1 1 40%;
+  padding-right: 100px;
+  box-sizing: border-box;
+}
+
+.right-box {
+  flex: 1 1 60%;
+  padding-left: 50px;
+  border-left: 2px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Accordion */
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  padding: 25px 30px;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+.accordion-button .first {
+  font-size: 16px;
+}
+
+.accordion-body {
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.send-btn {
+  padding: 18px 30px;
+  font-size: 16px;
+}
+
+/* Subscribe / Newsletter */
+.subscribe {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.subscribe input,
+.newsletter-form input[type="email"] {
+  width: 100%;
+  max-width: 280px;
+  padding: 15px 20px;
+  font-size: 14px;
+}
+
+.subscribe button,
+.newsletter-form button {
+  padding: 18px 25px;
+  font-size: 16px;
+}
+
+.newsletter-section {
+  padding: 40px 20px;
+  margin: 50px auto;
+  max-width: 95%;
+  height: auto;
+}
+
+.newsletter-form {
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 0;
+}
+
+.offer-box {
+  width: 200px;
+  height: 200px;
+  font-size: 28px;
+}
+
+/* === Responsive Media Queries === */
+@media (max-width: 1024px) {
   .faq-section {
-    flex-direction: column;
+    padding: 70px 40px;
+    gap: 30px;
   }
 
   .left-box {
+    padding-right: 50px;
+  }
+
+  .right-box {
+    padding-left: 30px;
+  }
+
+  .accordion-button {
+    padding: 20px 25px;
+    font-size: 15px;
+  }
+
+  .accordion-button .first {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  .left-box {
+    padding-right: 0;
     border-right: none;
     border-bottom: 2px solid #ddd;
     padding-bottom: 20px;
@@ -481,5 +675,79 @@ a{
 
   .right-box {
     padding-left: 0;
+    border-left: none;
   }
+
+  .send-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .offer-box {
+    width: 150px;
+    height: 150px;
+    font-size: 22px;
+  }
+
+  .offer-left {
+    left: 20px;
+    top: auto;
+    bottom: 20px;
+    transform: rotate(-10deg);
+  }
+
+  .offer-right {
+    right: 20px;
+    top: auto;
+    bottom: 20px;
+    transform: rotate(10deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .accordion-button {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  .accordion-button .first {
+    font-size: 14px;
+  }
+
+  .send-btn {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+
+  .newsletter-form {
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    font-size: 14px;
+    padding: 12px 15px;
+    width: 90%;
+  }
+
+  .offer-box {
+        display: none; 
+      }
 }

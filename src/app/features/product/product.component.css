@@ -173,15 +173,97 @@ a{
   color: white;
 }
 
-@media (max-width:768px) {
-  .hamburger { display:block; }
-  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
-  .nav-links.open { display:flex; }
-  div{
-    flex-wrap: wrap;
-    width: 100%;
+/* لحد التابلت */
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px 20px;
   }
 }
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hamburger { 
+    display:block; 
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav { 
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* اللوجو */
+  .brand img {
+    width: 90px;
+  }
+
+  /* اللينكات */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 12px;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* السيرش بوكس */
+  .search-box {
+    display: none;
+  }
+
+  /* نخلي أيقونة بحث مكان البوكس */
+  .search-icon-mobile {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* الايقونات */
+  .right {
+    gap: 15px;
+  }
+
+  .cart-icon {
+    padding: 10px;
+  }
+
+  .cart-icon span {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wishlist img {
+    width: 24px;
+    padding: 6px;
+  }
+
+  .header-user svg {
+    padding: 6px;
+  }
+}
+
 
 .header-user {
   position: relative;
@@ -529,3 +611,29 @@ a{
 }
 
 
+
+/* === Media Queries === */
+@media (max-width: 1024px) {
+  .title h2 { font-size: 45px; }
+  .title p { font-size: 14px; }
+
+  .product-card .info h3 { font-size: 18px; }
+  .product-card .info p { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+  .header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .categories { justify-content: center; }
+  .product-card .info { height: auto; padding-bottom: 60px; }
+}
+
+@media (max-width: 480px) {
+  .title h2 { font-size: 32px; }
+  .title p { font-size: 13px; }
+
+  .categories button { padding: 12px 20px; font-size: 14px; }
+  .product-card .info h3 { font-size: 16px; }
+  .product-card .info p { font-size: 13px; }
+  .product-card .info button { padding: 10px 20px; font-size: 14px; }
+  .pagination button { padding: 12px 20px; font-size: 14px; }
+}

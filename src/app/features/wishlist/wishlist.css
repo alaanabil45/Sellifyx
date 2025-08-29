@@ -1,0 +1,87 @@
+/* استخدمي نفس كود الـ store-container و .products و .product-card و .img-box و .info و .add و .tag */
+.store-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 70px;
+  font-family: 'Inter', sans-serif;
+  color: #111;
+}
+
+.title h2 {
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 30%));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.product-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.img-box img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.tag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #7c7c7c;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.tag:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+.info h3 {
+  color: #111;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 29px;
+  padding-bottom: 15px;
+}
+
+.info p {
+  color: #5b5b5b;
+  font-size: 17px;
+  line-height: 26px;
+  padding-bottom: 15px;
+}
+
+.add button {
+  border: 1px solid #111;
+  background: #111;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.add button:hover {
+  background: #fff;
+  color: #111;
+}

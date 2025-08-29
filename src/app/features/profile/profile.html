@@ -1,0 +1,85 @@
+<div class="profile-page">
+
+  <div class="profile-header">
+    <div class="profile-pic">
+      <img [src]="user?.imageUrl || 'https://www.w3schools.com/howto/img_avatar.png'" alt="Profile Picture" />
+      <label class="edit-photo" title="Change photo">
+        📷
+        <input type="file" accept="image/*" (change)="changePhoto($event)" hidden />
+      </label>
+    </div>
+    <div class="profile-info">
+      <h1>{{ user.name }}</h1>
+      <p class="email">{{ user.email }}</p>
+    </div>
+  </div>
+
+  <div class="cards">
+
+    <!-- Bio -->
+    <div class="card">
+      <div class="card-header">
+        <h3>📝 Bio</h3>
+        <span class="edit-icon" (click)="toggleEdit('bio')" title="Edit">✏️</span>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="!editField.bio; else bioEdit">
+          <p class="field-text">{{ user.bio }}</p>
+        </ng-container>
+        <ng-template #bioEdit>
+          <input [(ngModel)]="user.bio" placeholder="Enter your bio" />
+          <button (click)="saveField('bio')">💾 Save</button>
+        </ng-template>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h3>📞 Phone</h3>
+        <span class="edit-icon" (click)="toggleEdit('phone')" title="Edit">✏️</span>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="!editField.phone; else phoneEdit">
+          <p class="field-text">{{ user.phone }}</p>
+        </ng-container>
+        <ng-template #phoneEdit>
+          <input [(ngModel)]="user.phone" placeholder="Enter your phone" />
+          <button (click)="saveField('phone')">💾 Save</button>
+        </ng-template>
+      </div>
+    </div>
+
+ 
+    <div class="card">
+      <div class="card-header">
+        <h3>📍 Location</h3>
+        <span class="edit-icon" (click)="toggleEdit('location')" title="Edit">✏️</span>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="!editField.location; else locationEdit">
+          <p class="field-text">{{ user.location }}</p>
+        </ng-container>
+        <ng-template #locationEdit>
+          <input [(ngModel)]="user.location" placeholder="Enter your location" />
+          <button (click)="saveField('location')">💾 Save</button>
+        </ng-template>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h3>📦 Orders</h3>
+      </div>
+      <div class="order-item" *ngFor="let order of user.orders">
+        <div class="order-details">
+          <p class="order-name"><b>{{ order.name }}</b></p>
+          <p class="order-meta">{{ order.status }} • {{ order.date }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+
+</div> 

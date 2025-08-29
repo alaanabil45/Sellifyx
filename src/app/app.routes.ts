@@ -20,5 +20,7 @@ export const routes: Routes = [
   { path: 'productdetails/:id', loadComponent: () => import('./components/product-detail/product-detail.component').then(m => m.ProductDetailComponent ) },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'wishlist', component: Wishlist },
+  { path: 'profile', loadComponent: () => import('./features/profile/profile').then(m => m.ProfileComponent) },
+
   { path: '**', redirectTo: '' },
 ];

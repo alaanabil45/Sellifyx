@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Blogs } from './features/blogs/blogs';
 import { Contact } from './features/contact/contact';
 import { Support} from './features/support/support';
+import { ProductComponent } from './features/product/product';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },

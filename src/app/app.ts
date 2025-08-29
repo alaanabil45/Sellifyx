@@ -1,20 +1,22 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartDrawerComponent } from './components/cart-drawer/cart-drawer.component';
 import { CartUiService } from './services/cart-ui.service';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, NavbarComponent, CartDrawerComponent],
+  imports: [CommonModule, RouterOutlet, NavbarComponent, CartDrawerComponent, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
-})
+}) 
 export class App {
   protected readonly title = signal('sellifyx-clone');
   cartOpen = false;
   cartLoading = false;
+  
   cartLoadingMessage = '';
   open: any;
   scrolled: false | undefined;

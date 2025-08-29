@@ -356,24 +356,21 @@ a{
   padding: 100px 60px;
 }
 
-
-
 .left-box {
   flex: 1 1 40%;
   padding-right: 100px;
- 
 }
 
 .right-box {
   flex: 1 1 60%;
   padding-left: 50px;
-   border-left: 2px solid #ddd; 
+  border-left: 2px solid #ddd;
 }
 
 .send-btn {
   border: 1px solid black;
   border-radius: 50px;
-  padding: 21px 35px; 
+  padding: 21px 35px;
   background: none;
   cursor: pointer;
   font-size: 17px;
@@ -405,15 +402,14 @@ a{
   transition: background-color 0.3s;
 }
 
-.accordion-button .first{
+.accordion-button .first {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;
 }
-
 
 .accordion-icon {
   font-size: 36px;
@@ -464,6 +460,7 @@ a{
   margin-left: 10px;
 }
 
+/* Newsletter */
 .newsletter-section {
   border: 1px solid #dcdcdc;
   background: #f8f8f8;
@@ -472,166 +469,93 @@ a{
   text-align: center;
   position: relative;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  margin: 70px ;
+  margin: 70px;
   max-width: 88%;
-      
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      height: 400px;
+  overflow: hidden;
+  height: 400px;
 }
 
 .newsletter-form {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 50px;
-      
-    }
-
-    .newsletter-form input[type="email"] {
-      padding: 21px 30px;
-      border: 1px solid #ccc;
-      border-radius: 50px;
-      width: 280px;
-      outline: none;
-      font-size: 14px;
-      line-height: 20px;
-      font-weight: 400;
-    }
-
-    .newsletter-form button {
-      background: black;
-      color: white;
-      border: 1px solid #111;
-      border-radius: 50px;
-      padding: 21px 30px;
-      cursor: pointer;
-      font-size: 17px;
-      line-height: 26px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .newsletter-form button:hover {
-      background: white;
-      color: #111;
-    }
-
-    .offer-box {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      background: linear-gradient(to bottom , white, #f8f8f8 );
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      font-weight: 500;
-      color: rgb(166, 166, 168);
-      opacity: 0.9;
-      
-    }
-
-    .offer-left {
-      top: 60%;
-      left: 150px;
-      transform: rotate(-15deg) translateY(-50%);
-    }
-
-    .offer-right {
-      top: 60%;
-      right: 150px;
-      transform: rotate(15deg) translateY(-50%);
-    }
-
-/* === FAQ & Newsletter Responsive === */
-
-/* FAQ Section */
-.faq-section {
   display: flex;
-  gap: 40px;
-  padding: 100px 60px;
-  flex-wrap: wrap; /* يسمح بالترتيب العمودي عند الشاشات الصغيرة */
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 50px;
 }
 
-.left-box {
-  flex: 1 1 40%;
-  padding-right: 100px;
-  box-sizing: border-box;
-}
-
-.right-box {
-  flex: 1 1 60%;
-  padding-left: 50px;
-  border-left: 2px solid #ddd;
-  box-sizing: border-box;
-}
-
-/* Accordion */
-.accordion-button {
-  width: 100%;
-  text-align: left;
-  padding: 25px 30px;
-  font-size: 16px;
-  border-radius: 20px;
-}
-
-.accordion-button .first {
-  font-size: 16px;
-}
-
-.accordion-body {
-  font-size: 15px;
-  line-height: 22px;
-}
-
-.send-btn {
-  padding: 18px 30px;
-  font-size: 16px;
-}
-
-/* Subscribe / Newsletter */
-.subscribe {
-  background: #f9f9f9;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.subscribe input,
 .newsletter-form input[type="email"] {
-  width: 100%;
-  max-width: 280px;
-  padding: 15px 20px;
+  padding: 21px 30px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  width: 280px;
+  outline: none;
   font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
 
-.subscribe button,
 .newsletter-form button {
-  padding: 18px 25px;
-  font-size: 16px;
+  background: black;
+  color: white;
+  border: 1px solid #111;
+  border-radius: 50px;
+  padding: 21px 30px;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.newsletter-section {
-  padding: 40px 20px;
-  margin: 50px auto;
-  max-width: 95%;
-  height: auto;
-}
-
-.newsletter-form {
-  flex-direction: column;
-  gap: 15px;
-  padding: 30px 0;
+.newsletter-form button:hover {
+  background: white;
+  color: #111;
 }
 
 .offer-box {
-  width: 200px;
-  height: 200px;
-  font-size: 28px;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(to bottom , white, #f8f8f8 );
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: 500;
+  color: rgb(166, 166, 168);
+  opacity: 0.9;
+}
+
+.offer-left {
+  top: 60%;
+  left: 150px;
+  transform: rotate(-15deg) translateY(-50%);
+}
+
+.offer-right {
+  top: 60%;
+  right: 150px;
+  transform: rotate(15deg) translateY(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq-section {
+    flex-direction: column;
+  }
+
+  .left-box {
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .right-box {
+    padding-left: 0;
+  }
 }
 
 /* === Responsive Media Queries === */

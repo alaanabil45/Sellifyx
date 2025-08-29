@@ -302,26 +302,50 @@ a{
 
 /* Images Row */
 .about-hero-images {
-  display: flex;
+  display: flex; 
   justify-content: center;
-  gap: 10px; 
+  align-items: center;
+  gap: 30px; 
   margin-top: 30px;
-  flex-wrap: wrap; 
+  
 }
 
-.image-box {
-  background-color: #f0f0f0;  
-  width: 270px;  
-  height: 300px;
-  border-radius: 10px;
+.image-box-center {
+  background-color: #f8f8f8;  
+  width: 365px;  
+  height: 520px;
+  border-radius: 30px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.image-box img {
-  max-width: 70%;  
+.image-box-first {
+  background-color: #f8f8f8;  
+  width: 320px;  
+  height: 420px;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box-last {
+  background-color: #f8f8f8;  
+  width: 137px;  
+  height: 300px;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.about-hero-images img {
+  max-width: 100%;  
   max-height: 70%;
   object-fit: contain;
 }

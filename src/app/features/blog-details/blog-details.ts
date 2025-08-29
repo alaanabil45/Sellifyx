@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Router } from '@angular/router';
 import { FirestoreService } from '../auth/firestore.service';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+import { CartUiService } from '../../services/cart-ui.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-blog-details',
@@ -58,9 +60,13 @@ constructor(
     private firestoreService: FirestoreService,
     private router: Router,
     private auth: Auth,
-     private route: ActivatedRoute, 
+     private route: ActivatedRoute, private cartUi: CartUiService,
+    public cartService: CartService
   ) {}
 
+  openCart() {
+    this.cartUi.open();
+  }
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }

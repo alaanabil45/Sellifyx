@@ -1,22 +1,46 @@
+/* Overlay للخلفية */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer */
 .drawer {
   position: fixed;
-  top: 0; /* Changed to take full height from top */
+  top: 0;
   right: 0;
-  height: 100%; /* Changed to take full height */
-  width: 450px; /* Increased width for a larger cart drawer */
-  max-width: 100vw; /* Allow it to take full viewport width if needed */
+  width: 450px;
+  max-width: 100vw;
+  height: 100%;
   background: #fff;
   box-shadow: -8px 0 24px rgba(0,0,0,0.08);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 1000;
-  border-radius: 0; /* Removed border-radius for full height to match website design */
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column; /* Flexbox مهم */
 }
 
 .drawer.open {
   transform: translateX(0);
 }
 
+/* Header */
 .drawer-header {
   display: flex;
   align-items: center;
@@ -25,14 +49,16 @@
   border-bottom: 1px solid #eee;
 }
 
-.drawer-title{
-  font-size: 24px;
-  font-weight: 700;
+.drawer-title {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   color: #111;
 }
 
-.close-btn{
+.close-btn {
   background: none;
   border: none;
   font-size: 24px;
@@ -40,48 +66,20 @@
   color: #666;
 }
 
+/* Content */
 .drawer-content {
+  flex: 1; /* Flexbox يحسب المساحة تلقائياً */
   padding: 24px;
-  height: calc(100% - 220px); /* Adjusted to ensure header and footer are fully visible */
   overflow-y: auto;
 }
 
-.drawer-footer {
-  border-top: 1px solid #eee;
-  padding: 24px;
-}
-
-.remove-btn {
-  background: none;
-  border: none;
-  color: #e11d48;
-  cursor: pointer;
-}
-
-.qty-btn{
-  background: none;
-  border: none;
-  font-size: 20px; /* Adjusted font size */
-  cursor: pointer;
-  color: #333;
-  padding: 0;
-}
-
-.qty-control{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 4px 8px;
-}
-
-.item-row{
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-  border-bottom:1px solid #eee;
-  padding:16px 0;
+/* Item row */
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid #eee;
+  padding: 16px 0;
 }
 
 .item-row:last-of-type {
@@ -90,8 +88,8 @@
 }
 
 .item-row img {
-  min-width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -103,105 +101,101 @@
   color: #111;
 }
 
-.item-right{ 
-  margin-left: auto; 
+.unit-price {
+  color: #666;
+  font-size: 14px;
+}
+
+.price-line {
+  margin: 8px 0;
+  font-weight: 700;
+  color: #111;
+  font-size: 16px;
+}
+
+.remove-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* Qty control */
+.item-right {
+  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
 }
 
-.qty-display{
+.qty-display {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100px; /* Adjusted width */
-  height: 44px; /* Adjusted height */
+  width: 100px;
+  height: 44px;
   border: 1px solid #e5e5e5;
-  border-radius: 10px; /* Adjusted border-radius */
-  padding: 0 10px; /* Adjusted padding */
+  border-radius: 10px;
+  padding: 0 10px;
   gap: 8px;
 }
+
 .qty-display span {
   font-weight: 600;
   color: #111;
-  font-size: 16px; /* Adjusted font size */
-}
-.price-line{ 
-  margin: 8px 0; 
-  font-weight:700; 
-  color: #111;
   font-size: 16px;
 }
-.unit-price{
-  color:#666;
-  font-size: 14px;
-}
-.remove-link{
-  background:none;
-  border:none;
-  color:#2563eb;
-  text-decoration: underline;
-  cursor:pointer;
-  padding:0;
-  font-size: 14px;
+
+.qty-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 0;
 }
 
-.subtotal-row{
-  display:flex;
+/* Footer */
+.drawer-footer {
+  border-top: 1px solid #eee;
+  padding: 24px;
+}
+
+.subtotal-row {
+  display: flex;
   justify-content: space-between;
-  align-items:center;
-  margin-bottom:20px; /* Adjusted margin */
+  align-items: center;
+  margin-bottom: 20px;
   font-size: 18px;
-  font-weight: 400; /* Changed to normal font weight for 'Subtotal' text */
+  font-weight: 400;
   color: #111;
 }
 
 .subtotal-row strong {
-  font-weight: 700; /* Kept bold for the amount */
+  font-weight: 700;
 }
 
-.pay-with-browser-btn {
+/* Checkout button */
+.checkout-btn {
   width: 100%;
-  background: #f0f0f0; /* Lighter background */
-  color: #333;
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 28px; /* Adjusted border-radius */
-  padding: 16px 18px; /* Adjusted padding */
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  padding: 16px 18px;
   cursor: pointer;
   font-weight: 700;
   font-size: 16px;
-  margin-bottom: 16px; /* Adjusted margin */
+  margin-bottom: 10px;
 }
 
-.or-separator {
+/* Empty cart message */
+.drawer-content > div[ngif] {
   text-align: center;
-  margin: 20px 0; /* Adjusted margin */
-  color: #888;
-  position: relative;
-  font-size: 14px;
+  color: #666;
+  padding: 24px 0;
 }
-
-.or-separator::before,
-.or-separator::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 40%; /* Adjusted width for more space */
-  height: 1px;
-  background: #eee;
-}
-
-.checkout-btn{
-  width:100%;
-  background:#111;
-  color:#fff;
-  border:none;
-  border-radius:28px; /* Adjusted border-radius */
-  padding:16px 18px; /* Adjusted padding */
-  cursor:pointer;
-  font-weight:700;
-  font-size: 16px;
-}
-
-

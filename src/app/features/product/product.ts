@@ -37,23 +37,27 @@ scrolled: any;
   openCart() {
     this.cartUi.open();
   }
-  addToCart() {
-    if (this.isLoading) return;
-    this.isLoading = true;
-    this.cartUi.showLoading('Loading to cart...');
-    setTimeout(() => {
-      const productToAdd = {
-        ...this.product,
-        // Extract only numeric part from price string before converting to Number
-        price: Number(this.product.price.toString().replace(/[^0-9.]/g, '')) || 0,
-        quantity: 1 // Always add 1 when first adding to cart, service handles increments
-      };
-      this.cartService.addToCart(productToAdd);
-      this.cartUi.hideLoading();
-      this.cartUi.open();
-      this.isLoading = false;
-    }, 600);
-  }
+  addToCart(product: any) {
+  // نضيف خاصية isLoading على المنتج نفسه
+  if (product.isLoading) return;
+
+  product.isLoading = true;
+  this.cartUi.showLoading('Loading to cart...');
+
+  setTimeout(() => {
+    const productToAdd = {
+      ...product,
+      price: Number(product.price.toString().replace(/[^0-9.]/g, '')) || 0,
+      quantity: 1
+    };
+
+    this.cartService.addToCart(productToAdd);
+    this.cartUi.hideLoading();
+    this.cartUi.open();
+    product.isLoading = false; // بس المنتج ده يرجع عادي
+  }, 600);
+}
+
   ngOnInit() {
     const categoryFromRoute = this.route.snapshot.paramMap.get('id'); 
 

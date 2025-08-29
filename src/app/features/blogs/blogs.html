@@ -7,8 +7,8 @@
       <button class="hamburger" (click)="open = !open" aria-label="menu">☰</button>
       <div class="right">
         <div class="cart-icon">
-          <span>0</span>
-          <a routerLink="/cart" (click)="open=false">
+          <span>{{ cartService.getTotalQuantity() }}</span>
+          <a (click)="openCart()" style="cursor: pointer;">
             <img src="https://cdn.prod.website-files.com/67f0b3883b003d5b40abd974/67ff5135b6a0574126b4e3b7_Cart%20Icon.svg" alt="cart">
           </a>
         </div>
@@ -19,7 +19,6 @@
           <li><a routerLink="/support" (click)="open=true">Support</a></li>
           <li><a routerLink="/blogs" (click)="open=true">Blog</a></li>
           <li><a routerLink="/contact" (click)="open=true">Contact</a></li>
-          <li><a routerLink="/settings" (click)="open=true">Settings</a></li>
         </ul>
 
       

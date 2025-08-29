@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FirestoreService } from '../auth/firestore.service';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
+import { CartUiService } from '../../services/cart-ui.service';
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-support',
   standalone: true,
@@ -28,8 +30,14 @@ scrolled: any;
 constructor(
     private firestoreService: FirestoreService,
     private router: Router,
-    private auth: Auth
+    private auth: Auth,
+     private cartUi: CartUiService,
+    public cartService: CartService
   ) {}
+
+   openCart() {
+    this.cartUi.open();
+  }
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;

@@ -190,13 +190,94 @@ a{
   color: white;
 }
 
-@media (max-width:768px) {
-  .hamburger { display:block; }
-  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
-  .nav-links.open { display:flex; }
-  div{
+/* لحد التابلت */
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px 20px;
+  }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hamburger { 
+    display:block; 
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav { 
     flex-wrap: wrap;
-    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* اللوجو */
+  .brand img {
+    width: 90px;
+  }
+
+  /* اللينكات */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 12px;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* السيرش بوكس */
+  .search-box {
+    display: none;
+  }
+
+  /* نخلي أيقونة بحث مكان البوكس */
+  .search-icon-mobile {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* الايقونات */
+  .right {
+    gap: 15px;
+  }
+
+  .cart-icon {
+    padding: 10px;
+  }
+
+  .cart-icon span {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wishlist img {
+    width: 24px;
+    padding: 6px;
+  }
+
+  .header-user svg {
+    padding: 6px;
   }
 }
 
@@ -391,4 +472,83 @@ a{
  } 
 
   
+/* === Responsive Media Queries === */
+@media (max-width: 1024px) {
+  .contact-container {
+    padding: 50px;
+    gap: 30px;
+  }
+  
+  .contact-form, .contact-info {
+    padding: 50px;
+  }
+}
 
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .contact-form, .contact-info {
+    max-width: 100%;
+    padding: 30px;
+  }
+
+  .contact-form h2, .contact-info h2 {
+    font-size: 24px;
+  }
+
+  .contact-form p, .contact-info p {
+    font-size: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+  }
+
+  .contact-form button {
+    font-size: 15px;
+    padding: 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px 15px;
+    gap: 30px;
+  }
+
+  .contact-form, .contact-info {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .contact-form h2, .contact-info h2 {
+    font-size: 20px;
+  }
+
+  .contact-form p, .contact-info p {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 14px 0;
+    width: 100%;
+  }
+
+  .socials a {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}

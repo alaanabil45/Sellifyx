@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angu
 import { CommonModule } from '@angular/common';
 import { CartService, CartItem } from '../../services/cart.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-drawer',
@@ -17,7 +18,9 @@ export class CartDrawerComponent implements OnInit, OnDestroy {
   items: CartItem[] = [];
   private cartSubscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService , 
+   private router: Router) {}
 
   ngOnInit() {
     this.cartSubscription = this.cartService.items$.subscribe(items => {
@@ -52,9 +55,10 @@ export class CartDrawerComponent implements OnInit, OnDestroy {
   }
 
   checkout() {
-    alert('Proceeding to checkout!');
-    this.cartService.clearCart();
-    this.close.emit();
+     if (this.items.length > 0) {
+    this.close.emit(); // Close the drawer
+    this.router.navigate(['/checkout']); // Navigate to checkout page
+  }
   }
 
   trackByCartItem(index: number, item: CartItem): number {

@@ -169,3 +169,83 @@ body {
   }
 }
 
+/* === Responsive Design === */
+
+/* للأجهزة المتوسطة (تابلت) */
+@media (max-width: 1024px) {
+  .auth-container {
+    max-width: 750px;
+    min-height: 500px;
+  }
+
+  .right-side {
+    padding: 30px;
+  }
+
+  .right-side h2 {
+    font-size: 24px;
+  }
+
+  .right-side input {
+    width: 100%;
+  }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    max-width: 95%;
+    min-height: auto;
+  }
+
+  /* نخلي الصورة فوق */
+  .left-side {
+    flex: none;
+    width: 100%;
+    height: 180px;
+    padding: 10px;
+  }
+
+  .left-side img {
+    width: 70%;
+    max-height: 150px;
+    object-fit: contain;
+  }
+
+  /* الفورم يبقى تحت */
+  .right-side {
+    flex: none;
+    width: 90%;
+    padding: 20px;
+  }
+
+  .right-side h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .right-side input {
+    width: 90%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .right-side button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .google-btn {
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .google-btn img {
+    width: 18px;
+  }
+
+  .right-side p {
+    font-size: 13px;
+  }
+}

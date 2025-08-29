@@ -191,15 +191,97 @@ a{
   color: white;
 }
 
-@media (max-width:768px) {
-  .hamburger { display:block; }
-  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
-  .nav-links.open { display:flex; }
-  div{
-    flex-wrap: wrap;
-    width: 100%;
+/* لحد التابلت */
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px 20px;
   }
 }
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hamburger { 
+    display:block; 
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav { 
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* اللوجو */
+  .brand img {
+    width: 90px;
+  }
+
+  /* اللينكات */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 12px;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* السيرش بوكس */
+  .search-box {
+    display: none;
+  }
+
+  /* نخلي أيقونة بحث مكان البوكس */
+  .search-icon-mobile {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* الايقونات */
+  .right {
+    gap: 15px;
+  }
+
+  .cart-icon {
+    padding: 10px;
+  }
+
+  .cart-icon span {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wishlist img {
+    width: 24px;
+    padding: 6px;
+  }
+
+  .header-user svg {
+    padding: 6px;
+  }
+}
+
 
 .header-user {
   position: relative;
@@ -296,4 +378,42 @@ a{
 .blog-details .content{
     padding: 120px;
     text-align: left;
+}
+
+/* تابلت */
+@media (max-width: 1024px) {
+  .blog-details {
+    padding: 40px;
+  }
+
+  .blog-details .content {
+    padding: 60px;
+  }
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+  .blog-details {
+    padding: 20px;
+  }
+
+  .blog-details .img {
+    max-height: 250px;
+    border-radius: 20px;
+  }
+
+  .blog-details .content {
+    padding: 20px;
+    text-align: center; /* يخلي النصوص في النص */
+  }
+
+  .blog-details h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .blog-details p {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }

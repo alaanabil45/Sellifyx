@@ -175,15 +175,97 @@ a{
   color: white;
 }
 
-@media (max-width:768px) {
-  .hamburger { display:block; }
-  .nav-links { display:none; flex-direction:column; background:#fff; position:absolute; left:0; right:0; top:64px; padding:12px; border-top:1px solid #eee; }
-  .nav-links.open { display:flex; }
-  div{
-    flex-wrap: wrap;
-    width: 100%;
+/* لحد التابلت */
+@media (max-width: 1024px) {
+  .container {
+    padding: 15px 20px;
   }
 }
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hamburger { 
+    display:block; 
+  }
+
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav { 
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* اللوجو */
+  .brand img {
+    width: 90px;
+  }
+
+  /* اللينكات */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    gap: 12px;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  /* السيرش بوكس */
+  .search-box {
+    display: none;
+  }
+
+  /* نخلي أيقونة بحث مكان البوكس */
+  .search-icon-mobile {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  /* الايقونات */
+  .right {
+    gap: 15px;
+  }
+
+  .cart-icon {
+    padding: 10px;
+  }
+
+  .cart-icon span {
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .wishlist img {
+    width: 24px;
+    padding: 6px;
+  }
+
+  .header-user svg {
+    padding: 6px;
+  }
+}
+
 
 .header-user {
   position: relative;
@@ -296,3 +378,104 @@ h2 {
     color: #111;
     margin: 70px 0;
   }
+
+  /* 📱 Responsive Design */
+
+/* الموبايل والتابلت */
+@media (max-width: 992px) {
+  .container {
+    padding: 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .articles {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  footer {
+    margin: 0 20px;
+    padding: 30px;
+  }
+
+  footer .second {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  footer .one,
+  footer .two {
+    width: 100%;
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+}
+
+/* الموبايل فقط */
+@media (max-width: 768px) {
+  .hamburger { 
+    display: block; 
+  }
+
+  .nav-links { 
+    display: none; 
+    flex-direction: column; 
+    background: #fff; 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 64px; 
+    padding: 15px; 
+    border-top: 1px solid #eee; 
+    gap: 10px;
+    z-index: 99;
+  }
+
+  .nav-links.open { 
+    display: flex; 
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  .right {
+    gap: 20px;
+  }
+
+  .search-box input {
+    width: 200px;
+    padding: 12px 35px;
+  }
+
+  .blogs-page {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}

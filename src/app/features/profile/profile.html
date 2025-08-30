@@ -1,10 +1,10 @@
-<div class="profile-page">
 
+<div class="profile-page">
   <div class="profile-header">
     <div class="profile-pic">
       <img [src]="user?.imageUrl || 'https://www.w3schools.com/howto/img_avatar.png'" alt="Profile Picture" />
       <label class="edit-photo" title="Change photo">
-        📷
+        <i class="fas fa-camera"></i>
         <input type="file" accept="image/*" (change)="changePhoto($event)" hidden />
       </label>
     </div>
@@ -15,12 +15,13 @@
   </div>
 
   <div class="cards">
-
     <!-- Bio -->
     <div class="card">
       <div class="card-header">
-        <h3>📝 Bio</h3>
-        <span class="edit-icon" (click)="toggleEdit('bio')" title="Edit">✏️</span>
+        <h3><i class="fas fa-user"></i> Bio</h3>
+        <span class="edit-icon" (click)="toggleEdit('bio')" title="Edit">
+          <i class="fas fa-edit"></i>
+        </span>
       </div>
       <div class="card-body">
         <ng-container *ngIf="!editField.bio; else bioEdit">
@@ -28,7 +29,7 @@
         </ng-container>
         <ng-template #bioEdit>
           <input [(ngModel)]="user.bio" placeholder="Enter your bio" />
-          <button (click)="saveField('bio')">💾 Save</button>
+          <button (click)="saveField('bio')"><i class="fas fa-save"></i> Save</button>
         </ng-template>
       </div>
     </div>
@@ -36,41 +37,44 @@
 
     <div class="card">
       <div class="card-header">
-        <h3>📞 Phone</h3>
-        <span class="edit-icon" (click)="toggleEdit('phone')" title="Edit">✏️</span>
+        <h3><i class="fas fa-phone"></i> Phone</h3>
+        <span class="edit-icon" (click)="toggleEdit('phone')" title="Edit">
+          <i class="fas fa-edit"></i>
+        </span>
       </div>
       <div class="card-body">
         <ng-container *ngIf="!editField.phone; else phoneEdit">
-          <p class="field-text">{{ user.phone }}</p>
+          <p class="field-text">{{ user.phone || 'No phone added' }}</p>
         </ng-container>
         <ng-template #phoneEdit>
           <input [(ngModel)]="user.phone" placeholder="Enter your phone" />
-          <button (click)="saveField('phone')">💾 Save</button>
+          <button (click)="saveField('phone')"><i class="fas fa-save"></i> Save</button>
         </ng-template>
       </div>
     </div>
 
- 
     <div class="card">
       <div class="card-header">
-        <h3>📍 Location</h3>
-        <span class="edit-icon" (click)="toggleEdit('location')" title="Edit">✏️</span>
+        <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+        <span class="edit-icon" (click)="toggleEdit('location')" title="Edit">
+          <i class="fas fa-edit"></i>
+        </span>
       </div>
       <div class="card-body">
         <ng-container *ngIf="!editField.location; else locationEdit">
-          <p class="field-text">{{ user.location }}</p>
+          <p class="field-text">{{ user.location || 'No location added' }}</p>
         </ng-container>
         <ng-template #locationEdit>
           <input [(ngModel)]="user.location" placeholder="Enter your location" />
-          <button (click)="saveField('location')">💾 Save</button>
+          <button (click)="saveField('location')"><i class="fas fa-save"></i> Save</button>
         </ng-template>
       </div>
     </div>
 
-
+  
     <div class="card">
       <div class="card-header">
-        <h3>📦 Orders</h3>
+        <h3><i class="fas fa-shopping-bag"></i> Orders</h3>
       </div>
       <div class="order-item" *ngFor="let order of user.orders">
         <div class="order-details">
@@ -79,7 +83,5 @@
         </div>
       </div>
     </div>
-
   </div> 
-
-</div> 
+</div>
